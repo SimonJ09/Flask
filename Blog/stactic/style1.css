@@ -1,54 +1,14 @@
-{% extends 'partials/_nav.html' %}
-{% block title %}{%endblock %}
 
-{% block contenu %}
 
-<div class="container">
-    <div class="row">
-        <h1>contact us</h1>
-    </div>
-    <div class="row">
-        <h4 style="text-align:center">We'd love to hear from you!</h4>
-    </div>
-    <div class="row input-container">
-        <div class="col-xs-12">
-          <div class="styled-input wide">
-            <input type="text" required />
-            <label>Name</label> 
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-12">
-          <div class="styled-input">
-            <input type="text" required />
-            <label>Email</label> 
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-12">
-          <div class="styled-input" style="float:right;">
-            <input type="text" required />
-            <label>Phone Number</label> 
-          </div>
-        </div>
-        <div class="col-xs-12">
-          <div class="styled-input wide">
-            <textarea required></textarea>
-            <label>Message</label>
-          </div>
-        </div>
-        <div class="col-xs-12">
-          <div class="btn-lrg submit-btn">Send Message</div>
-        </div>
-    </div>
-  </div>  
-    
-<script type="text/javascript" src="{{ url_for('serve_static', filename='script.js') }}"></script>
-<style>
-
+body {
+    background-color: #444442;
+    padding-top: 85px;
+}
 
 h1 {
     font-family: 'Poppins', sans-serif, 'arial';
     font-weight: 600;
-    font-size: 50px;
+    font-size: 72px;
     color: white;
     text-align: center;
 }
@@ -56,7 +16,7 @@ h1 {
 h4 {
     font-family: 'Roboto', sans-serif, 'arial';
     font-weight: 400;
-    font-size: 40px;
+    font-size: 20px;
     color: #9b9b9b;
     line-height: 1.5;
 }
@@ -64,7 +24,7 @@ h4 {
 /* ///// inputs /////*/
 
 input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
-    font-size: 30px;
+    font-size: 0.75em;
     color: #999;
     top: -5px;
     -webkit-transition: all 0.225s ease;
@@ -106,7 +66,7 @@ textarea {
     padding: 30px;
     border: 0;
     width: 100%;
-    font-size: 2rem;
+    font-size: 1rem;
     background-color: #2d2d2d;
     color: white;
     border-radius: 4px;
@@ -124,7 +84,7 @@ textarea:focus ~ span {
 
 textarea {
     width: 100%;
-    min-height: 20em;
+    min-height: 15em;
 }
 
 .input-container {
@@ -172,6 +132,3 @@ input[type=checkbox]:checked + label {
   font-style: normal;
 }
 
-
-</style>
-{% endblock %}
