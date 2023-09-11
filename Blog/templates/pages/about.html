@@ -93,8 +93,6 @@
       body {
         font-family: 'Raleway', sans-serif;
         font-weight: 500;
-        text-align: center;
-        width: 100%;
         margin: 0 auto;
         box-sizing: border-box;
         overflow: auto;
@@ -102,7 +100,7 @@
       
       /* Classe ajoutant la propriété flex */
       .flex {
-          display: -webkit-flex;
+        display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flex;
         display: -o-flex;
@@ -119,106 +117,9 @@
         color: currentcolor;
         text-decoration: none;
       }
-      
-      
-      
-      /* ///////////////////////// HEADER ///////////////////////// */
-      
-      header {
-        display: block;
-        margin: 0 auto;
-          max-width: 960px;
-          position: relative;
-        z-index: 1;
-      }
-      
-      /* ------------- CONTENEUR N°1 ------------- */
-      
-      #conteneur1-header {
-        width: 100%;
-        color: white;
-        font-family: 'Open Sans', sans-serif;
-        position: absolute;
-        display: flex;
-        display: -webkit-flex;
-        justify-content: space-between;
-          align-items: center;
-      }
-      
-      #conteneur1-header p {
-        font-size: 14px;
-        padding-left: 15px;
-        word-spacing: 4px;
-        text-shadow: 2px 2px 2px grey;
-        padding-top: 4px;
-      }
-      
-      /* Barre de recherche */
-      #conteneur1-header form {
-        padding-right: 7px;
-      }
-      
-      .valeur-barre-recherche {
-        font-style: italic;
-        color: #414042;
-        border-radius: 5px;
-        background-color: rgba(255,255,255,0.5);
-      }
-      
-      #btn-rechercher {
-        font-size: 12px;
-        border-radius: 4px;
-        background-color: transparent;
-        color: white;
-        text-shadow: 2px 4px 2px grey;
-      }
-      
-      /* Icône panier*/
-      form .fa-shopping-basket {
-        font-size: 22px;
-        padding-top: 5px;
-        padding-right: 20px;
-        padding-left: 20px;
-        color: white;
-      }
-      
-      
-      
-      
-      /* ------------- CONTENEUR N°2 - FOND BLANC -------------- */
-      
-      #conteneur2-header {
-          width: 100%;
-        background-color: rgba(255,255,255,0.9);
-        margin-top: 35px;
-        height: 95px;
-        position: absolute;
-        left: 0;
-      }
-      
-      /* ///// LOGO + GRAND MENU PRINCIPAL ///// */
-      
-      /* // LOGO */
-      .logo-et-nav-principale {
-        width: 100%;
-      }
-      
-      .logo a img {
-          width : 170px;
-      }
+    
       
       /* // GRAND MENU PRINCIPAL */
-      
-      #div-menu-block {
-          position: static;
-        float: right;
-        width: 80%;
-        margin-top: 32px;
-        padding-right: 5px;
-          text-align: center;
-      }
-    
-     
       
       #nav_hotel {
         margin-right: 10px;
@@ -252,56 +153,18 @@
         font-size: 29px;
       }
       
-   
-      
-      
-    
-      
       /* Menus avec liens cachés du menu */
 
-      
-      
-      /* // MENUS -- ANIMATIONS */
-      
-      /* Conditions initiales du contenu */
-      .logo-et-nav-burger {
-        display: none;
-      }
-      
-      .menu-deroulant-contenu {
-       display: none;
-      }
-      
-      /* Animation d'apparition */
-      header #div-menu-block .nav-principale .menu-deroulant:hover .menu-deroulant-contenu {
-          display: block;
-          z-index: 1;
-          opacity: 0.8;
-          transition-delay: 0.2s, 0.2s, 0.5s;
-      }
-      
-      /* Animation couleur/taille */
-        /* Grand menu */
-      header #div-menu-block .nav-principale ul li a:hover, .menu-deroulant-contenu:hover {
-          color: #c3974e;
-          transition-duration : 0.4s;
-      }
-        /* Menu burger */
-      header #div-menu-hide .nav-burger ul li a:hover {
-          color: #c3974e;
-          transition-duration : 0.8s;
-      }
-      
+    
       /* ///////////////////////// MAIN ///////////////////////// */
       
       main {
         margin-left: auto;
         margin-right: auto;
-        max-width: 990px;
+        text-align: center;
       }
       
       .conteneur-main{
-        width: 100%;
         margin-left: auto;
         margin-right: auto;
       }
@@ -314,9 +177,9 @@
           max-width: 960px;
           height: 497px;
           overflow: hidden;
-        margin-left: auto;
-        margin-right: auto;
-        z-index: 0;
+          margin-left: auto;
+          margin-right: auto;
+          z-index: 0;
       }
       
       #sContent {
