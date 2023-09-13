@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Éditer l'article</title>
+</head>
+<body>
+    <h1>Éditer l'article</h1>
+    <form method="POST">
+        <label for="new_title">Nouveau titre:</label>
+        <input type="text" name="new_title" value="{{ article.title }}" required><br>
+        <label for="new_contenu">Nouveau contenu:</label>
+        <textarea name="new_contenu" required>{{ article.contenu }}</textarea><br>
+        <label for="new_auteur">Nouvel auteur:</label>
+        <input type="text" name="new_auteur" value="{{ article.auteur }}" required><br>
+        <label for="new_date_publication">Nouvelle date de publication:</label>
+        <input type="date" name="new_date_publication" value="{{ article.date_publication }}" required><br>
+        <input type="submit" value="Enregistrer les modifications">
+    </form>
+    <a href="{{ url_for('page_admin') }}">Annuler</a>
+</body>
+</html>

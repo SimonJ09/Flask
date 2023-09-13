@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Éditer l'éducation</title>
+</head>
+<body>
+    <h1>Éditer l'éducation</h1>
+    <form method="POST">
+        <label for="new_programme">Nouveau programme:</label>
+        <input type="text" name="new_programme" value="{{ education.programme }}" required><br>
+        <label for="new_nom">Nouveau nom:</label>
+        <input type="text" name="new_nom" value="{{ education.nom }}" required><br>
+        <label for="new_description">Nouvelle description:</label>
+        <textarea name="new_description" required>{{ education.description }}</textarea><br>
+        <label for="new_duree">Nouvelle durée:</label>
+        <input type="text" name="new_duree" value="{{ education.duree }}" required><br>
+        <label for="new_date_debut">Nouvelle date de début:</label>
+        <input type="date" name="new_date_debut" value="{{ education.date_debut }}" required><br>
+        <input type="submit" value="Enregistrer les modifications">
+    </form>
+    <a href="{{ url_for('page_admin') }}">Annuler</a>
+</body>
+</html>

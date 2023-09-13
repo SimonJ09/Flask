@@ -1,0 +1,197 @@
+{%  extends 'Admin/page_admin.html' %}
+{% block title %}{% endblock %}
+
+{% block contenu %}
+
+<style>
+    .container {
+        width: 1024px;
+        padding: 2em;
+    }
+    
+    .bold-blue {
+        font-weight: bold;
+        color: #0277BD;
+    }
+        /* Style de la table Bootstrap */
+    #table {
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+
+    #table th {
+        background-color: #0277BD;
+        color: #fff;
+    }
+
+    #table tbody tr:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
+
+    #table tbody tr:hover {
+        background-color: #e0e0e0;
+    }
+
+    /* Style des boutons */
+    .btn-primary {
+        background-color: #0277BD;
+        color: #fff;
+    }
+
+    .btn-primary:hover {
+        background-color: #01579b;
+    }
+
+    .btn-danger {
+        background-color: #f44336;
+        color: #fff;
+    }
+
+    .btn-danger:hover {
+        background-color: #d32f2f;
+    }
+
+    /* Style des modales */
+    .modal-content {
+        border-radius: 0;
+    }
+
+    .modal-header {
+        background-color: #0277BD;
+        color: #fff;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .modal-footer {
+        border-top: 1px solid #ddd;
+    }
+
+    /* Style des formulaires dans les modales */
+    .modal-body input[type="text"],
+    .modal-body select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    /* Style des boutons dans les modales */
+    .modal-body .btn-primary,
+    .modal-body .btn-danger {
+        width: auto;
+        margin-right: 10px;
+    }
+
+    /* Style des boutons d'action dans les lignes du tableau */
+    .btn-table-action {
+        margin-right: 5px;
+    }
+
+</style>
+
+<div id="toolbar">
+    <select class="form-control">
+        <option value="">Export Basic</option>
+        <option value="all">Export All</option>
+        <option value="selected">Export Selected</option>
+    </select>
+    <a href="{{ url_for('ajout_education_form') }}" class="btn btn-primary">Ajouter</a>
+    
+</div>
+
+<table id="table" 
+     data-toggle="table"
+     data-search="true"
+     data-filter-control="true" 
+     data-show-export="true"
+     data-click-to-select="true"
+     data-toolbar="#toolbar">
+    <thead>
+        <tr>
+            <th data-field="state" data-checkbox="true"></th>
+            <th data-field="prenom" data-filter-control="input" data-sortable="true">id</th>
+            <th data-field="prenom" data-filter-control="input" data-sortable="true">programme</th>
+            <th data-field="date" data-filter-control="select" data-sortable="true">nom</th>
+            <th data-field="date" data-filter-control="select" data-sortable="true">description</th>
+            <th data-field="date" data-filter-control="select" data-sortable="true"> photo</th>
+            <th data-field="examen" data-filter-control="select" data-sortable="true">pdf</th>
+            <th data-field="examen" data-filter-control="select" data-sortable="true">duree</th>
+            <th data-field="examen" data-filter-control="select" data-sortable="true">date_debut</th>
+            <th data-field="actions" data-formatter="actionFormatter">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for education in educations %}
+            <tr data-article-id="{{ education.id }}">
+                <td class="bs-checkbox"><input data-index="0" name="btSelectItem" type="checkbox"></td>
+                <td>{{ education.id }}</td>
+                <td>{{ education.programme }}</td>
+                <td>{{ education.nom }}</td>
+                <td>{{ education.description }}</td>
+                <td>
+                    <img src="{{ education.get_photo_path() }}" alt="Image">
+                </td>
+                <td>
+                    <a href="{{ education.get_pdf_path() }}" class="btn btn-primary">PDF</a>
+                </td>
+                <td>{{ education.duree }}</td>
+                <td>{{ education.date_debut }}</td>
+                <td>
+                    <a href="{{ url_for('editer_education', education_id=education.id) }}" class="btn btn-primary btn-modifier">Modifier</a>
+                    <a href="{{ url_for('supprimer_education', education_id=education.id) }}" class="btn btn-danger btn-supprimer">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<script>
+    // Initialise la table Bootstrap
+    var $table = $('#table');
+    $table.bootstrapTable();
+
+    // Fonction pour formater les actions (boutons)
+    function actionFormatter(value, row, index) {
+        return '<button class="btn btn-info" data-toggle="modal" data-target="#editModal">Éditer</button> ' +
+               '<button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Supprimer</button>';
+    }
+
+    // Gère l'événement "click" sur un bouton de suppression
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        // Vous pouvez extraire les données de la ligne ici et les utiliser dans la modale de suppression
+        var row = button.closest('tr');
+        var prenom = row.find('td:eq(1)').text(); // Exemple pour extraire le prénom
+        // Mettez à jour le contenu de la modale de suppression avec les données appropriées
+        $(this).find('.modal-body').text('Êtes-vous sûr de vouloir supprimer ' + prenom + ' ?');
+    });
+
+    // Gère l'événement "click" sur un bouton d'édition
+    $('#editModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        // Vous pouvez extraire les données de la ligne ici et les utiliser dans la modale d'édition
+        var row = button.closest('tr');
+        var prenom = row.find('td:eq(1)').text(); // Exemple pour extraire le prénom
+        // Mettez à jour le contenu de la modale d'édition avec les données appropriées
+        $(this).find('.modal-title').text('Éditer ' + prenom);
+        // Ajoutez ici les champs de formulaire pré-remplis avec les données de la ligne
+    });
+
+    <script>
+        $(document).ready(function () {
+            $(".btn-supprimer").click(function () {
+                var articleId = $(this).closest("tr").data("article-id");
+    
+                if (confirm("Êtes-vous sûr de vouloir supprimer cet article ?")) {
+                    // Redirigez vers la route de suppression de l'article avec l'ID
+                    window.location.href = "/supprimer_article/" + articleId;
+                }
+            });
+        });
+    </script>
+    
+</script>
+
+{% endblock %}

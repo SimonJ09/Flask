@@ -17,26 +17,28 @@
                 <li><a href="{{ url_for('about') }}">About</a></li>
                 <li>
                   <label for="recherche">Recherche:</label>
-                  <select id="recherche" name="recherche">
-                      <option value="#">Recherche Page 1</option>
-                      <option value="#">Recherche Page 2</option>
+                  <select id="recherche-select" name="recherche" class="custom-select">
+                      <option value="{{ url_for('about') }}">Articles</option>
+                      <option value="{{ url_for('about') }}">Domaines</option>
                   </select>
-                </li>
-                <li>
-                  <label for="recherche">Service:</label>
-                  <select id="recherche" name="recherche">
-                      <option value="#">Recherche Page 1</option>
-                      <option value="#">Recherche Page 2</option>
+              </li>
+              <li>
+                  <label for="service">Service:</label>
+                  <select id="service-select" name="service" class="custom-select">
+                      <option value="{{ url_for('about') }}">Master</option>
+                      <option value="{{ url_for('about') }}">Examen Biomédicale</option>
                   </select>
-                </li>
-                <li>
-                  <label for="recherche">Education:</label>
-                  <select id="recherche" name="recherche">
-                      <option value="{{ url_for('contact') }}">Recherche Page 1</option>
-                      <option value="#">Recherche Page 2</option>
+              </li>
+              <li>
+                  <label for="education">Education:</label>
+                  <select id="education-select" name="education" class="custom-select">
+                      <option value="{{ url_for('about') }}">Programme</option>
+                      <option value="{{ url_for('about') }}">Master2</option>
                   </select>
-                </li>
-                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+              </li>
+              <li>
+                <a href="{{ url_for('contact') }}">Contact</a>
+              </li>
             </ul>
         </div>
         <span class="navTrigger">
@@ -47,7 +49,11 @@
     </div>
 </nav>
 <section class="home">
-  
+  <h1 class="home-title">
+    <span>Bienvenue sur notre site </span>
+    <span>Laboratoire de biologie moléculaire de l'université </span>
+    <span>d'Abomey calavi </span>
+  </h1>
 </section>
 
 <div class ="body_1">
@@ -55,7 +61,7 @@
 </div>
 
 <div style="height:30px">
-   
+  
 </div>
   <!-- Site footer -->
   <footer class="site-footer">
@@ -63,18 +69,18 @@
       <div class="row">
         <div class="col-sm-12 col-md-6">
           <h6>About</h6>
-          <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+          <p class="text-justify">uac.com<i>uac</i>visitez lz site de l'université</p>
         </div>
 
         <div class="col-xs-6 col-md-3">
           <h6>Categories</h6>
           <ul class="footer-links">
-            <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
-            <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
-            <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
-            <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
-            <li><a href="http://scanfcode.com/category/android/">Android</a></li>
-            <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
+            <li><a href="http://scanfcode.com/category/c-language/">Biologie </a></li>
+            <li><a href="http://scanfcode.com/category/front-end-development/">FAST</a></li>
+            <li><a href="http://scanfcode.com/category/back-end-development/">FSS</a></li>
+            <li><a href="http://scanfcode.com/category/java-programming-language/">CAncer</a></li>
+            <li><a href="http://scanfcode.com/category/android/">Moléculaire</a></li>
+            <li><a href="http://scanfcode.com/category/templates/">uac</a></li>
           </ul>
         </div>
 
@@ -95,7 +101,7 @@
       <div class="row">
         <div class="col-md-8 col-sm-6 col-xs-12">
           <p class="copyright-text">Copyright &copy;{{now.year}} All Rights Reserved by 
-       <a href="#">Scanfcode</a>.
+       <a href="#">xage personel</a>.
           </p>
         </div>
 

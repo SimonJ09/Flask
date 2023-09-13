@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier l'administrateur</title>
+</head>
+<body>
+    <h1>Modifier l'administrateur</h1>
+    <form method="POST">
+        <label for="new_username">Nouveau nom d'utilisateur:</label>
+        <input type="text" name="new_username" value="{{ admin.username }}" required><br>
+        <label for="new_password">Nouveau mot de passe:</label>
+        <input type="password" name="new_password" value="{{ admin.password }}" required><br>
+        <input type="submit" value="Enregistrer les modifications">
+    </form>
+    <a href="{{ url_for('page_admin') }}">Annuler</a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Éditer l'événement</title>
+</head>
+<body>
+    <h1>Éditer l'événement</h1>
+    <form method="POST">
+        <label for="new_title">Nouveau titre:</label>
+        <input type="text" name="new_title" value="{{ evenement.title }}" required><br>
+        <label for="new_contenu">Nouveau contenu:</label>
+        <textarea name="new_contenu" required>{{ evenement.contenu }}</textarea><br>
+        <label for="new_date_de_depart">Nouvelle date de départ:</label>
+        <input type="date" name="new_date_de_depart" value="{{ evenement.date_de_depart }}" required><br>
+        <label for="new_date_de_fin">Nouvelle date de fin:</label>
+        <input type="date" name="new_date_de_fin" value="{{ evenement.date_de_fin }}" required><br>
+        <input type="submit" value="Enregistrer les modifications">
+    </form>
+    <a href="{{ url_for('page_admin') }}">Annuler</a>
+</body>
+</html>
