@@ -19,7 +19,7 @@
                   <label for="recherche">Recherche:</label>
                   <select id="recherche-select" name="recherche" class="custom-select">
                       <option value="{{ url_for('about') }}">Articles</option>
-                      <option value="{{ url_for('about') }}">Domaines</option>
+                      <option value="{{ url_for('about') }}"></option>
                   </select>
               </li>
               <li>
@@ -50,9 +50,7 @@
 </nav>
 <section class="home">
   <h1 class="home-title">
-    <span>Bienvenue sur notre site </span>
-    <span>Laboratoire de biologie moléculaire de l'université </span>
-    <span>d'Abomey calavi </span>
+    {% block texte %}{%endblock %}
   </h1>
 </section>
 

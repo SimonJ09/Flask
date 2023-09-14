@@ -1,5 +1,10 @@
 {%  extends 'partials/_nav.html' %}
 {% block title %}{% endblock %}
+{% block texte %}
+    <span> Ce qui faut savoir à propos de nous </span>
+    <span>Nos programme </span>
+    <span>et nos projets </span>
+{%endblock %}
 
 {% block contenu %}
 
@@ -53,7 +58,7 @@
   <main>
 
     <div id="conteneur-main">
-      <h1>Laboratoire de biologie molécules et phytogénétiques</h1>
+      <h1 class= 'texte'>Laboratoire de biologie molécules et phytogénétiques</h1>
       <h2></h2>
 
       <!-- BLOCS assemblage TEXTE + PHOTO -->
@@ -97,6 +102,15 @@
         box-sizing: border-box;
         overflow: auto;
       }
+      
+      h1 {
+        font-family: 'Poppins', sans-serif, 'arial';
+        font-weight: 10px;
+        font-size: 50px;
+        color: white;
+        text-align: center;
+      }
+
       
       /* Classe ajoutant la propriété flex */
       .flex {
@@ -212,7 +226,7 @@
       
       /* ----------- 1er BLOC TEXTE centré ----------- */
       
-      h1 {
+      .texte {
         text-transform : uppercase;
         font-size: 30px;
         font-weight: 300;

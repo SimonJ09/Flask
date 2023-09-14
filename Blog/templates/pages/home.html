@@ -1,6 +1,10 @@
 {% extends 'partials/_nav.html' %}
 {% block title %}   {% endblock %}
-
+{% block texte %}
+    <span>Bienvenue sur notre site </span>
+    <span>Laboratoire de biologie moléculaire de l'université </span>
+    <span>d'Abomey calavi </span>
+{%endblock %}
 {% block contenu %}
 <div class="menu-btn">
     <i class="fas fa-bars fa-2x"></i>
@@ -22,24 +26,23 @@
         Shop Now <i class="fas fa-chevron-right"></i>
       </a>
     </header>
-
     {% for evenement in evenements %}
     <section class="home-cards">
       <div>
-        <img src="https://i.ibb.co/LZPVKq9/card1.png" alt="">
+        <img src="{{ evenement.get_photo_path() }}" alt="">
         <h3>{{ evenement.title }}</h3>
         <p>
           {{ evenement.contenu}}
         </p>
-        <a href="#">Learn More <i class="fas fa-chevron-right"></i></a>
+        <a href="{{ evenement.get_pdf_path() }}">Learn More <i class="fas fa-chevron-right"></i></a>
       </div>
     </section>
-
+    {% endfor %}
     <!-- Xbox -->
     <section class="xbox">
       <div class="content">
         <h2>Master</h2>
-        <p>En pls des projets nous formons également les masters en biochimie moléculaire, </p>
+        <p>En plus des projets nous formons également les masters en biochimie moléculaire, </p>
           <a href="#" class="btn">
             Join Now <i class="fas fa-chevron-right"></i>
           </a>
@@ -47,15 +50,19 @@
     </section>
 
     <!-- Home cards 2 -->
-    
+    {% for evenement in evenements %}
+
       <section class="home-cards">
         <div>
-          <img src="{{ evenement.photo.url }}" alt="" />
+          <img src="{{ evenement.get_photo_path() }}" alt="" />
           <h3></h3>
           <p>
-            {{ evenement.contenu}}
+            Date de démarage : {{ evenement.date_de_depart }}
           </p>
-          <a href="#">Shop Now <i class="fas fa-chevron-right"></i></a>
+          <p>
+            Date de cloture : {{ evenement.date_de_fin }}
+          </p>
+          <a href="{{ evenement.get_pdf_path() }}">Shop Now <i class="fas fa-chevron-right"></i></a>
         </div>
       </section>
       {% endfor %}
@@ -67,7 +74,7 @@
           <p>Nos projet sont dévéloper sur le cancer de sein la biochimie et d'autre domaines de 
             phytomédecine, vous aimeriez savois plus sur nous?
           </p>
-            <a href="#" class="btn">
+            <a href="{{ url_for('about') }}" class="btn">
               Learn More <i class="fas fa-chevron-right"></i>
             </a>
         </div>
@@ -75,6 +82,14 @@
 
 
     <style>
+          h1 {
+            font-family: 'Poppins', sans-serif, 'arial';
+            font-weight: 10px;
+            font-size: 50px;
+            color: white;
+            text-align: center;
+          }
+
         * {
             box-sizing: border-box;
             margin: 0;
