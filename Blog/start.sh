@@ -1,3 +1,4 @@
 #!/bin/bash
-source Flaskapp/bin/activate
+python -m venv venv
+source venv/bin/activate
 python app.py
