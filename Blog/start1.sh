@@ -6,7 +6,7 @@ if [ ! -d "Flaskapp" ]; then
 fi
 
 # Activez l'environnement virtuel Flask
-source Flaskapp/Scripts/activate
+.\Flaskapp\Scripts\activate
 
 # Mise à jour de pip dans l'environnement virtuel
 python -m pip install --upgrade pip
