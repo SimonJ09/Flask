@@ -1,13 +1,8 @@
 #!/bin/bash
-
-# Créez un environnement virtuel Flask s'il n'existe pas
-if [ ! -d "Flaskapp" ]; then
-    python -m venv Flaskapp
-fi
+python -m venv Flaskapp
 
 # Activez l'environnement virtuel Flask
-.\Flaskapp\Scripts\activate
-
+source Flaskapp/bin/activate
 # Mise à jour de pip dans l'environnement virtuel
 python -m pip install --upgrade pip
 
