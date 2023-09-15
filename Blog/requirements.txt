@@ -6,3 +6,4 @@ SQLAlchemy
 WTForms
 flask_wtf
 flask_mail
+gunicorn
