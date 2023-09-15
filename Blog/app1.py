@@ -40,7 +40,7 @@ def page_admin():
     return render_template('Admin/page_admin.html')
 
 
-@app.route('/admin', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']

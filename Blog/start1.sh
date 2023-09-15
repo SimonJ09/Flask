@@ -15,4 +15,4 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 
 # Lancement de l'application avec Gunicorn
-gunicorn -c gunicorn_config.py app:app
+gunicorn -c gunicorn_config.py app:app1
