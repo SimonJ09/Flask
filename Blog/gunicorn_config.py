@@ -5,13 +5,13 @@ workers = 4
 bind = "0.0.0.0:8000"
 
 # Chemin du fichier d'accès au journal (access log)
-accesslog = "/path/to/access.log"
+accesslog = "access.log"
 
 # Chemin du fichier de journal des erreurs (error log)
-errorlog = "/path/to/error.log"
+errorlog = "error.log"
 
 # Mode de débogage (True pour activer le débogage)
-debug = False
+debug = True
 
 # Désactiver la capture de la sortie standard (stdout)
-capture_output = False
+capture_output = True
